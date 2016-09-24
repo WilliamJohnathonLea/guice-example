@@ -1,0 +1,23 @@
+
+plugins {
+  id 'application'
+  id 'scala'
+  id 'org.ensime.gradle' version '0.2.8'
+}
+
+repositories {
+    jcenter()
+}
+
+mainClassName = 'org.will.Main'
+
+
+dependencies {
+
+    compile 'org.scala-lang:scala-library:2.11.8'
+    compile 'com.google.inject:guice:4.1.0'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.scalatest:scalatest_2.11:3.0.0'
+
+}
