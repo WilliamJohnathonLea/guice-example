@@ -3,6 +3,7 @@ plugins {
   id 'application'
   id 'scala'
   id 'org.ensime.gradle' version '0.2.8'
+  id 'org.scoverage' version '2.1.0'
 }
 
 repositories {
@@ -19,5 +20,7 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.scalatest:scalatest_2.11:3.0.0'
+
+    scoverage 'org.scoverage:scalac-scoverage-plugin_2.11:1.1.0', 'org.scoverage:scalac-scoverage-runtime_2.11:1.1.0'
 
 }
