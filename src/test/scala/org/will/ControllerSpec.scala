@@ -11,7 +11,8 @@ import org.will.database.{Controller, MongoConnection, MongoSearchService}
 @RunWith(classOf[JUnitRunner])
 class ControllerSpec extends FlatSpec with Matchers {
 
-  val controller = new Controller(new MongoSearchService(new MongoConnection()))
+  implicit val conn = new MongoConnection
+  val controller = new Controller(new MongoSearchService)
 
   "get" should "return a value if one is found" in {
     controller.get("Hello") shouldBe Some("world!")
