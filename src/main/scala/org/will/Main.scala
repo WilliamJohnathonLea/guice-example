@@ -2,18 +2,15 @@ package org.will
 
 import com.google.inject.Injector
 import com.google.inject.Guice
+import org.will.database.{Controller, MongoModule}
 
 object Main {
 
   def main(args: Array[String]): Unit = {
-    val injector: Injector = Guice.createInjector(new BillingModule())
-    val service = injector.getInstance(classOf[BillingService])
-    val greeter = injector.getInstance(classOf[TestTrait])
-    val greeter2 = injector.getInstance(classOf[Greeter])
+    val injector: Injector = Guice.createInjector(new MongoModule())
+    val controller = injector.getInstance(classOf[Controller])
 
-    service.chargeCard(Card(1234, 100), 20)
-    println(greeter.greet())
-    greeter2.getBilled
+    println(controller.get("Hello"))
   }
 
 }
